@@ -1,0 +1,113 @@
+<<<<<<<<<------ For Bellman Ford Algorithm --------------->>>>>>>>>>>
+
+---- 1. Simple Graph (Positive Weights) -----
+
+vector<tuple<int, int, int>> edges1 = {
+    {0, 1, 4},
+    {0, 2, 2},
+    {1, 2, 1},
+    {1, 3, 5},
+    {2, 3, 8},
+    {2, 4, 10},
+    {3, 4, 3}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase1(edges1, 0, 4, 5);
+
+
+
+---- 2. Graph with Negative Weights (No Negative Cycles): -----
+
+vector<tuple<int, int, int>> edges2 = {
+    {0, 1, -1},
+    {1, 2, 2},
+    {2, 3, 1},
+    {3, 4, -3},
+    {0, 2, 4}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase2(edges2, 0, 4, 5);
+
+
+---- 3. Graph with Negative Weight Cycle (Detection Needed): -----
+
+vector<tuple<int, int, int>> edges3 = {
+    {0, 1, 1},
+    {1, 2, -1},
+    {2, 0, -1},
+    {1, 3, 2},
+    {3, 4, 3}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase3(edges3, 0, 4, 5);
+
+
+---- 4. Disconnected Graph: -----
+
+vector<tuple<int, int, int>> edges4 = {
+    {0, 1, 10},
+    {1, 2, 20}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase4(edges4, 0, 3, 4);
+
+
+---- 5. Single Node Graph: -----
+
+vector<tuple<int, int, int>> edges5 = {};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase5(edges5, 0, 0, 1);
+
+
+---- 6. Graph with Multiple Paths: -----
+
+vector<tuple<int, int, int>> edges6 = {
+    {0, 1, 2},
+    {0, 2, 5},
+    {1, 2, 1},
+    {1, 3, 7},
+    {2, 3, 2}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase6(edges6, 0, 3, 4);
+
+
+---- 7. Graph with all Negative Weights: -----
+
+vector<tuple<int, int, int>> edges7 = {
+    {0, 1, -1},
+    {1, 2, -2},
+    {2, 3, -3},
+    {3, 4, -4}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase7(edges7, 0, 4, 5);
+
+
+---- 8. Graph with Zero Weights: -----
+
+vector<tuple<int, int, int>> edges8 = {
+    {0, 1, 0},
+    {1, 2, 0},
+    {2, 3, 0},
+    {3, 4, 0}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase8(edges8, 0, 4, 5);
+
+
+---- 9. Graph with Large Positive Weights: -----
+
+vector<tuple<int, int, int>> edges9 = {
+    {0, 1, 1000},
+    {1, 2, 2000},
+    {2, 3, 3000},
+    {3, 4, 4000}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase9(edges9, 0, 4, 5);
+
+
+---- 10. Complete Graph: -----
+
+vector<tuple<int, int, int>> edges10 = {
+    {0, 1, 1},
+    {0, 2, 4},
+    {1, 2, 2},
+    {1, 3, 5},
+    {2, 3, 1}
+};
+tuple<vector<tuple<int, int, int>>, int, int, int> testCase10(edges10, 0, 3, 4);
+
+
