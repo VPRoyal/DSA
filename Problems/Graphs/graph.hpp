@@ -15,7 +15,7 @@ namespace Graph {
     unordered_map<int, vector<int>> createADJ(const vector<pair<int, int>>& edges);
 
     // Function to perform Breadth First Search (BFS)
-    void BFS(int node, queue<int>& Nodes, const unordered_map<int, vector<int>>& adjList);
+    void BFS(int node, queue<pair<int,int>>& Nodes, const unordered_map<int, vector<int>>& adjList, unordered_map<int, bool>& isVisited);
     void applyBFS(const unordered_map<int, vector<int>>& adjList);
 
     // Function to perform Depth First Search (DFS)

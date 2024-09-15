@@ -1,5 +1,5 @@
-// This namespace implements all basic functionality realted to Graph Data Structures.
-/*
+/* This namespace implements all basic functionality realted to Graph Data Structures.
+    This namespace contain methods to apply BFS, DFS, and find out Components & Cycles.
 Test Case: vector<pair<int, int>> edges = {
             {1, 2}, {1, 3}, {1, 4}, {2, 5}, {2, 6},
             {3, 7}, {3, 8}, {4, 9}, {4, 10}, {5, 10}
@@ -27,14 +27,15 @@ namespace Graph
         return adjList;
     }
     // Function to perform Depth First Search (DFS)
-    void BFS(int node, queue<int> &Nodes, const unordered_map<int, vector<int>> &adjList)
+    void BFS(int node, queue<int> &Nodes, const unordered_map<int, vector<int>> &adjList, unordered_map<int, bool> &isVisited)
     {
         cout << node << " ";
         for (int neighbor : adjList.at(node))
-            Nodes.push(neighbor);
+            if(!isVisited[neighbor]) Nodes.push(neighbor);
     }
     void applyBFS(const unordered_map<int, vector<int>> &adjList)
     {
+        int cycle=0;
         unordered_map<int, bool> isVisited;
         queue<int> Nodes;
         for (auto it = adjList.begin(); it != adjList.end(); ++it)
@@ -51,11 +52,12 @@ namespace Graph
                     if (!isVisited[node])
                     {
                         isVisited[node] = true;
-                        BFS(node, Nodes, adjList);
-                    }
+                        BFS(node, Nodes, adjList, isVisited);
+                    }else{cycle++;}
                 }
             }
         }
+        cout<<"\nTotal cycles in graph: "<<cycle<<endl;
     }
     void DFS(int node, const unordered_map<int, vector<int>> &adjList, unordered_map<int, bool> &isVisited)
     {
