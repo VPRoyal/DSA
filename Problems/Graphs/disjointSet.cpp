@@ -21,6 +21,7 @@ class DSU {
 
     int find(int n){
         if(parent[n] == n) return n;
+        // Path compression by making the parent of the found node as the root
         return parent[n] = find(parent[n]);
     }
     void unite(int x, int y){
